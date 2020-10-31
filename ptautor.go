@@ -49,12 +49,12 @@ func main() {
 			parse(page)
 			log.Debug("slee   ping...")
 
-			time.Sleep(time.Duration(conf.CheckInterval) * time.Second)
+			time.Sleep(time.Duration(conf.CheckInterval) * time.Minute)
 		} else {
 			for err := range errs {
 				log.Errorf("get page error:%s", err)
 			}
-			time.Sleep(time.Duration(conf.RetryInterval) * time.Second)
+			time.Sleep(time.Duration(conf.RetryInterval) * time.Minute)
 		}
 	}
 }
@@ -76,6 +76,14 @@ func readConfig() {
 	}
 	conf.maxSizeVal, _ = meter.ParseBytes(conf.MaxSize)
 	conf.minSizeVal, _ = meter.ParseBytes(conf.MinSize)
+
+	// 检查配置值的有效性，并修正
+	if conf.CheckInterval == 0 {
+		conf.CheckInterval = 1
+	}
+	if conf.RetryInterval == 0 {
+		conf.RetryInterval = 1
+	}
 }
 
 func logInit() {
