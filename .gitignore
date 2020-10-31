@@ -1,3 +1,10 @@
+.idea
+
+*.log
+
+# 自己的真实配置文件不上传到github
+auto.toml
+
 # Binaries for programs and plugins
 *.exe
 *.exe~

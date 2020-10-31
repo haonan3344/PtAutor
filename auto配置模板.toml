@@ -1,0 +1,16 @@
+#请将本模板文件修改完成后，文件名改为 auto.toml 使用
+
+# Cookie，代替身份登陆，内写从浏览器中得到的真实cookie信息，作为身份凭据
+CookieString = ""
+# 浏览器标志模拟
+UserAgent = "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36"
+# 允许下载尺寸最小的种子
+MinSize = "0MB"
+# 允许下载尺寸最大的种子
+MaxSize = "2.50TB"
+# 检查页面间隔，单位分钟。建议配置5分钟
+CheckInterval = 5
+# 检查页面间隔出错后，重试间隔，单位分钟。建议配置1分钟
+RetryInterval = 1
+# 种子存放的文件夹
+TorrentsDir = "torrents"
